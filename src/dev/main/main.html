@@ -1,0 +1,35 @@
+<div ng-controller="mainController as main" class="w-100 p-0">
+    <p class="h4 text-secondary text-center my-3">{{main.test}}</p>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-4">
+                <input id="range" class="form-control ">
+            </div>
+        </div>
+        <div class="row" ng-if="!main.timeStamps.length">
+            <div class="col-12">
+                <p class="h3 py-4 text-center">
+                    No Data :-( .
+                </p>
+            </div>
+        </div>
+        <div class="row" ng-if="main.timeStamps.length">
+            <div class="col-12 py-3">
+                <table class="table table-striped border">
+                    <thead>
+                        <tr>
+                            <th class="pl-4">Start</th>
+                            <th>End</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="timeStamp in main.timeStamps">
+                            <td class="text-success pl-4">{{timeStamp.start | date : 'MMMM dd, yyyy'}}</td>
+                            <td class="text-info">{{timeStamp.end | date : 'MMMM dd, yyyy'}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
